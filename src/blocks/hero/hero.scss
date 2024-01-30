@@ -24,6 +24,10 @@
 		flex-grow: 1;
 		max-height: 700px;
 		margin-top: 80px;
+
+		@include media('<=xlg') {
+			margin-top: 0;
+		}
 		
 		@include media('<=md') {
 			max-height: 650px;

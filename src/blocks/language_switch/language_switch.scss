@@ -60,6 +60,7 @@
     }
     &__active {
         display: flex;
+        align-items: flex-start;
         background: rgba(18, 20, 26, 1);
     }
 
@@ -86,4 +87,20 @@
         0% { opacity: 0; }
         100% { opacity: 1; }
     }
+
+    @include media('<=xlg') {
+        flex-direction: column;
+	}
+	
+	@include media('<=md') {
+
+	}
+	
+	@include media('<=sm') {
+
+	}
+	
+	@include media('<=xxs') {
+
+	}
 }

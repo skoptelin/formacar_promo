@@ -6,6 +6,7 @@
 	window.addEventListener('scroll', () => {
 		const box = hero.getBoundingClientRect();
 		header.classList[(box.bottom < 0) ? 'add': 'remove']('showed');
+		header.classList[(box.bottom < 0) ? 'add': 'remove']('out');
 	});
 
 })();
