@@ -1,0 +1,30 @@
+.container {
+	$self: &;
+	box-sizing: border-box;
+	padding-right: 80px;
+	padding-left: 80px;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: $container;
+	width: 100%;
+	
+	@include media('<=xlg') {
+		padding-right: 50px;
+		padding-left: 50px;
+	}
+	
+	@include media('<=md') {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+	
+	@include media('<=sm') {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+	
+	@include media('<=xxs') {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}

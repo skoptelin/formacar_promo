@@ -1,0 +1,47 @@
+.slider {
+	$self: &;
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	
+	&.swiper {
+
+		@include media('<=md') {
+			height: auto;
+			overflow: visible;
+		}
+	
+		> .swiper-wrapper {
+			height: 100%;
+
+			@include media('<=md') {
+				transform: none !important;
+				display: block;	
+				position: static;
+				height: auto;
+			}
+		}
+	}
+
+	&__slide {
+		height: auto;
+
+		@include media('<=md') {
+			pointer-events: auto !important;
+		}
+	}
+
+	&__dots {
+		position: absolute;
+		left: 50px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__dot {
+
+		&.active {
+			
+		}
+	}
+}

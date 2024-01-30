@@ -1,0 +1,343 @@
+.screen {
+	$self: &;
+	box-sizing: border-box;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-flow: column nowrap;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	
+	@include media('<=md') {
+		padding-top: 110px;
+		padding-bottom: 50px;
+		justify-content: flex-start;
+	}
+	
+	@include media('<=xs') {
+		padding-top: 80px;
+		padding-bottom: 30px;
+	}
+
+	&::before {
+		display: block;
+		content: '';
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: transparent;
+		position: absolute;
+		opacity: 0.5;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+		left: 0;
+		top: 0;
+	}
+
+	&_one::before {
+		background-image: url('#{$images-path}section-bg-1.png');
+	}
+	
+	&_two::before {
+		background-image: url('#{$images-path}section-bg-2.png');
+	}
+	
+	&_three::before {
+		background-image: url('#{$images-path}section-bg-3.png');
+	}
+	
+	&_four::before {
+		background-image: url('#{$images-path}section-bg-4.png');
+	}
+	
+	&_five::before {
+		background-image: url('#{$images-path}section-bg-5.png');
+	}
+	
+	&_six::before {
+		background-image: url('#{$images-path}section-bg-6.png');
+	}
+
+	&__inner {
+		position: relative;
+		color: #fff;
+		z-index: 2;
+		display: flex;
+		flex-flow: column nowrap;
+		max-height: 850px;
+		flex-grow: 1;
+		
+		@include media('<=md') {
+			max-height: none;
+		}
+	}
+
+	&__head {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		display: block;
+		align-self: flex-start;
+
+		@include media('<=md') {
+			display: none;
+		}
+
+		&:hover img {
+			filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.75));
+		}
+
+		img {
+			transition: filter 0.4s;
+		}
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		flex-grow: 1;
+		
+		@include media('<=md') {
+			margin-bottom: 70px;
+			flex-flow: column nowrap;
+			flex-grow: 0;
+		}
+	}
+
+	&__info {
+		padding-left: 22px;
+		padding-right: 65px;
+		max-width: 680px;
+		margin-right: auto;
+		
+		@include media('<=lg') {
+			padding-left: 18px;
+			padding-right: 50px;
+		}
+		
+		@include media('<=md') {
+			max-width: none;
+			padding: 0;
+			margin-bottom: 30px;
+		}
+	}
+
+	&__title {
+		font-family: "MB", sans-serif;
+		font-size: 64px;
+		text-transform: uppercase;
+		margin-bottom: 50px;
+		
+		@include media('<=xxlg') {
+			margin-bottom: 30px;
+			font-size: 48px;
+		}
+		
+		@include media('<=xlg') {
+			font-size: 40px;
+		}
+		
+		@include media('<=xxs') {
+			font-size: 36px;
+		}
+
+		&_small {
+			font-size: 40px;
+		
+			@include media('<=xxlg') {
+				font-size: 36px;
+			}
+			
+			@include media('<=xlg') {
+				font-size: 30px;
+			}
+			
+			@include media('<=xxs') {
+				font-size: 24px;
+			}
+		}
+		
+		&[data-animation] {
+			opacity: 0;
+	
+			&.showed {
+				animation: titleFadeUp 0.7s;
+				animation-fill-mode: forwards;
+				animation-delay: 0.3s;
+			}
+		}
+	
+		span {
+			display: block;
+			font-family: "MR", sans-serif;
+			text-transform: none;
+			font-size: 32px;
+		
+			@include media('<=xxlg') {
+				font-size: 24px;
+			}
+		}
+	}
+
+	&__text {
+		font-size: 16px;
+		
+		@include media('<=xxlg') {
+			font-size: 14px;
+		}
+		
+		&[data-animation] {
+			opacity: 0;
+	
+			&.showed {
+				animation: titleFadeUp 1.0s;
+				animation-fill-mode: forwards;
+				animation-delay: 0.5s;
+			}
+		}
+
+		p {
+			margin-bottom: 20px;
+			
+			@include media('<=md') {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	&__buttons {
+		margin-top: 50px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		
+		@include media('<=xxs') {
+			gap: 16px;
+		}
+	}
+
+	&__button {
+		
+		&_load {
+			@include media('<=xxs') {
+				flex-grow: 1;
+				max-width: calc(50% - 10px);
+			}
+		}
+		
+		&_get {
+			flex-grow: 1;
+			max-width: 240px;
+
+			@include media('<=xxs') {
+				max-width: none;
+				width: 100%;
+			}
+		}
+	}		
+
+	&__side {
+		width: 54%;
+		flex-shrink: 0;
+		margin: 0 0 0 auto;
+		
+		@include media('<=xxlg') {
+			width: 49%;
+		}
+		
+		@include media('<=xlg') {
+			width: 44%;
+		}
+		
+		@include media('<=lg') {
+			width: 50%;
+		}
+
+		@include media('<=md') {
+			width: 100%;
+		}
+		
+		&[data-animation] {
+			opacity: 0;
+	
+			&.showed {
+				animation: cardSlideIn 1.0s;
+				animation-fill-mode: forwards;
+			}
+		}
+
+		&_right-fit {
+			width: calc(54% + 80px);
+			margin-right: -80px;
+
+			@include media('<=xxlg') {
+				width: calc(49% + 50px);
+				margin-right: -50px;
+			}
+			
+			@include media('<=xlg') {
+				width: calc(44% + 50px);
+				margin-right: -50px;
+			}
+			
+			@include media('<=lg') {
+				width: calc(50% + 50px);
+				margin-right: -50px;
+			}
+			
+			@include media('<=md') {
+				margin-right: -30px;
+				width: auto;
+				order: -1;
+			}
+			
+			@include media('<=sm') {
+				margin-right: -20px;
+			}
+			
+			@include media('<=xxs') {
+				margin-right: -15px;
+			}
+		}
+	}
+
+	&__image {
+
+		&[data-modal] {
+			cursor: pointer;
+		}
+
+		img, video {
+			display: block;
+			box-sizing: border-box;
+			width: 900px;
+			max-width: 100%;
+			margin-left: auto;
+			border: 3px solid rgba(255, 255, 255, 0.3);
+			border-radius: 8px;
+
+			@include media('<=md') {
+				margin: 0;
+			}
+		}
+	}
+
+	&__navigation {
+		padding-top: 10px;
+	
+		@include media('<=xxs') {
+			padding-top: 20px;
+		}
+	}
+
+	&__down {
+		margin-top: auto;
+		position: relative;
+		align-self: center;
+		z-index: 2;
+	}
+}

@@ -1,0 +1,41 @@
+.header {
+	$self: &;
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	opacity: 0;
+	background-image: linear-gradient(to bottom, #000 10%, rgba(0, 0, 0, 0) 95%);
+	animation: fadeIn 1.0s forwards;
+
+	&.showed {
+		@include media('<=md') {
+			display: flex;
+		}
+	}
+	
+	@include media('<=md') {
+		height: 90px;
+	}
+	
+	@include media('<=xs') {
+		height: 70px;
+	}
+
+	&__inner {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__logo {
+		display: block;
+		max-width: 220px;
+
+		img {
+			@include media('<=xs') {
+				max-width: 160px;
+			}
+		}
+	}
+}

@@ -1,0 +1,62 @@
+.button {
+	$self: &;
+	@extend %reset-button;
+	box-sizing: border-box;
+	display: block;
+	width: fit-content;
+	font-family: "MB", sans-serif;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 1.0;
+	white-space: nowrap;
+	background-color: #fff;
+	color: #12141A;
+	border-radius: 8px;
+	padding: 8px 20px;
+	min-height: 42px;
+	border: 1px solid transparent;
+	transition: background-color 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	&_fade {
+		background-color: #b8b8b8;
+		
+		&:hover {
+			background-color: #fff;
+		}
+	}
+
+	&_load {
+		background-color: transparent;
+		border: 1px solid #fff;
+		color: #fff;
+		padding-right: 30px;
+		
+		@include media('<=xxs') {
+			padding: 8px 16px;
+			font-size: 12px;
+		}
+
+		&::before {
+			display: block;
+			content: '';
+			width: 24px;
+			height: 24px;
+			flex-shrink: 0;
+			margin-right: 16px;
+			background: url('#{$images-path}icons-sprite.svg#icon-download-view-white') center / contain no-repeat transparent;
+			
+			@include media('<=xxs') {
+				margin-right: 10px;
+			}
+		}
+	}
+
+	&:disabled {
+		background-color: transparent;
+		border-color: #5a5a5a;
+		color: #5a5a5a;
+	}
+}

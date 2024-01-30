@@ -1,0 +1,9 @@
+package-lock.json
+node_modules/
+.vscode/
+*.rar
+*.zip
+.DS_Store
+Thumbs.db
+README.md
+.idea/
