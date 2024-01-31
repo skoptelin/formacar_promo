@@ -100,4 +100,7 @@
     @include media('<=xlg') {
         flex-direction: column;
 	}
+    @include media('<=xxs') {
+        margin-top: 0;
+	}
 }

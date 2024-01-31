@@ -9,12 +9,6 @@
 	background-image: linear-gradient(to bottom, #000 10%, rgba(0, 0, 0, 0) 95%);
 	animation: fadeIn 1.0s forwards;
 	transition: all .3s ease;
-
-	/* &.out {
-		@include media('<=xlg') {
-			transform: translateY(-150%);
-		}
-	} */
 	
 	@include media('<=md') {
 		height: 90px;
