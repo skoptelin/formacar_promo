@@ -13,14 +13,16 @@
 		header_inner.classList[(box.bottom < 0) ? 'add': 'remove']('showed');
 		language_switch.classList[(box.bottom < 0) ? 'add': 'remove']('mobile');
 		if(selected_language == 'arab'){
-			header_inner.style = "flex-direction: row-reverse; justify-content: space-between;"
 			if(!header_inner.classList.contains('showed')){
 				header_inner.style = "flex-direction: row; justify-content: flex-start;"
+			} else {
+				header_inner.style = "flex-direction: row-reverse; justify-content: space-between;"
 			}
 		} else {
-			header_inner.style = "flex-direction: row; justify-content: space-between;"
 			if(!header_inner.classList.contains('showed')){
 				header_inner.style = "flex-direction: row; justify-content: flex-end;"
+			} else {
+				header_inner.style = "flex-direction: row; justify-content: space-between;"
 			}
 		}
 	});

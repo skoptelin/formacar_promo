@@ -212,6 +212,7 @@
 	&__buttons {
 		margin-top: 50px;
 		display: flex;
+		justify-content: space-between;
 		flex-wrap: wrap;
 		gap: 20px;
 		
@@ -272,11 +273,11 @@
 
 		&_right-fit {
 			width: calc(54% + 80px);
-			margin-right: -80px;
+			margin-right: -120px;
 
 			@include media('<=xxlg') {
 				width: calc(49% + 50px);
-				margin-right: -50px;
+				margin-right: -80px;
 			}
 			
 			@include media('<=xlg') {

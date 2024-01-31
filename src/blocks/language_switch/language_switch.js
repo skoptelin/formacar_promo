@@ -37,21 +37,50 @@
     }
 
     function change_language_switch_location(selected_language_switch_box, parent_selector) {
-        console.log(parent_selector);
-        let selected_language = selected_language_switch_box.querySelector('.text').id;
-        let logo_selector     = document.querySelectorAll(".screen__head");
+        let selected_language    = selected_language_switch_box.querySelector('.text').id;
+        let logo_selector        = document.querySelectorAll(".screen__head");
+        let hero_buttons         = document.querySelector(".hero__buttons");
+        let screen_content       = document.querySelectorAll(".screen__content");
+        let screen_info          = document.querySelectorAll(".screen__info");
+        let final_screen_content = document.querySelector("#final_screen_content");
+        const window_width       = window.innerWidth;
         if(selected_language == 'arab'){
-            parent_selector.style = "justify-content: flex-start";
-            logo_selector.forEach(selector => selector.style = "justify-content: flex-end");
             if(parent_selector.classList.contains('showed')){
                 parent_selector.style = "flex-direction: row-reverse; justify-content: space-between"
+            } else {
+                parent_selector.style = "justify-content: flex-start";
             }
+
+            if(window_width <= 960) {
+                screen_content.forEach(selector => selector.style = "flex-direction: column");
+                hero_buttons.style         = "flex-direction: column";
+                final_screen_content.style = "flex-direction: column; padding-right: 0;";
+            } else {
+                screen_content.forEach(selector => selector.style = "flex-direction: row-reverse");
+                hero_buttons.style         = "flex-direction: row-reverse";
+                final_screen_content.style = "flex-direction: row";
+            }
+            logo_selector.forEach (selector => selector.style = "justify-content: flex-end");
+            screen_info.forEach   (selector => selector.style = "text-align: right; padding-right: 0;");
+            
         } else {
-            parent_selector.style = "justify-content: flex-end";
-            logo_selector.forEach(selector => selector.style = "justify-content: flex-start");
             if(parent_selector.classList.contains('showed')){
                 parent_selector.style = "flex-direction: row; justify-content: space-between"
+            } else {
+                parent_selector.style = "justify-content: flex-end";
             }
+
+            if(window_width <= 960) {
+                screen_content.forEach(selector => selector.style = "flex-direction: column");
+                hero_buttons.style         = "flex-direction: column";
+                final_screen_content.style = "flex-direction: column; padding-right: 0;";
+            } else {
+                screen_content.forEach(selector => selector.style = "flex-direction: row");
+                hero_buttons.style         = "flex-direction: row";
+                final_screen_content.style = "flex-direction: row";
+            }
+            logo_selector.forEach (selector => selector.style = "justify-content: flex-start");
+            screen_info.forEach   (selector => selector.style = "text-align: left; padding-right: 65px;");  
         }
     }
 
