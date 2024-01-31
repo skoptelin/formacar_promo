@@ -10,17 +10,11 @@
 	animation: fadeIn 1.0s forwards;
 	transition: all .3s ease;
 
-	&.out {
+	/* &.out {
 		@include media('<=xlg') {
 			transform: translateY(-150%);
 		}
-	}
-
-	&.showed {
-		@include media('<=md') {
-			display: flex;
-		}
-	}
+	} */
 	
 	@include media('<=md') {
 		height: 90px;
@@ -33,14 +27,30 @@
 	&__inner {
 		display: flex;
 		justify-content: flex-end;
+
+		&.showed {
+			@include media('<=md') {
+				justify-content: space-between;
+			}
+		}
 	}
 
 	&__logo {
-		display: block;
+		display: none;
 		max-width: 220px;
+		margin-top: 55px;
+
+		&.showed {
+			@include media('<=md') {
+				display: flex;
+				max-width: 220px;
+				margin-top: 5px;
+			}
+		}
 
 		img {
 			@include media('<=xs') {
+				height: fit-content;
 				max-width: 160px;
 			}
 		}

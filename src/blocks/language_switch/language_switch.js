@@ -37,15 +37,21 @@
     }
 
     function change_language_switch_location(selected_language_switch_box, parent_selector) {
+        console.log(parent_selector);
         let selected_language = selected_language_switch_box.querySelector('.text').id;
         let logo_selector     = document.querySelectorAll(".screen__head");
         if(selected_language == 'arab'){
             parent_selector.style = "justify-content: flex-start";
             logo_selector.forEach(selector => selector.style = "justify-content: flex-end");
-            
+            if(parent_selector.classList.contains('showed')){
+                parent_selector.style = "flex-direction: row-reverse; justify-content: space-between"
+            }
         } else {
             parent_selector.style = "justify-content: flex-end";
             logo_selector.forEach(selector => selector.style = "justify-content: flex-start");
+            if(parent_selector.classList.contains('showed')){
+                parent_selector.style = "flex-direction: row; justify-content: space-between"
+            }
         }
     }
 
