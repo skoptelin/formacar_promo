@@ -36,6 +36,17 @@
         change_language_switch_location(selected_language_switch_box, parent_selector);
     }
 
+    let arrLang = {
+        'en': {
+            'hero_formacar_design': 'Formacar Design is a studio dedicated to premium vehicle design and styling.',
+            'hero_the_high': 'The high standards and the individual approach adopted by Formacar offer a fresh perspective on the mundane and let you discover new aspects of automotive design finesse.',
+        },
+        'ar': {
+            'hero_formacar_design': 'هو استوديو متميز لتصميم  السيارات الفاخرة Formacar Design',
+            'hero_the_high': 'تسمح المعايير العالية والنهج المميز للعلامة التجارية Formacar  بالنظر إلى المألوف بشكل مختلف وفتح جوانب جديدة للتميز في تصميم السيارات',
+        }
+    }
+
     function change_language_switch_location(selected_language_switch_box, parent_selector) {
         let selected_language    = selected_language_switch_box.querySelector('.text').id;
         let logo_selector        = document.querySelectorAll(".screen__head");
@@ -43,6 +54,7 @@
         let screen_content       = document.querySelectorAll(".screen__content");
         let screen_info          = document.querySelectorAll(".screen__info");
         let final_screen_content = document.querySelector("#final_screen_content");
+        let translate_selector = document.querySelectorAll(".lang");
         const window_width       = window.innerWidth;
         if(selected_language == 'arab'){
             if(parent_selector.classList.contains('showed')){
@@ -62,6 +74,14 @@
             }
             logo_selector.forEach (selector => selector.style = "justify-content: flex-end");
             screen_info.forEach   (selector => selector.style = "text-align: right; padding-right: 0;");
+
+            translate_selector.forEach(element => {
+                /* console.log(element);
+                let tag_bdo   = document.createElement('bdo'); */
+                /* let translate = tag_bdo.textContent = arrLang['ar'][element.getAttribute('key')];
+                element.appendChild(translate); */
+                element.textContent = arrLang['ar'][element.getAttribute('key')];
+            });
             
         } else {
             if(parent_selector.classList.contains('showed')){
@@ -80,7 +100,11 @@
                 final_screen_content.style = "flex-direction: row";
             }
             logo_selector.forEach (selector => selector.style = "justify-content: flex-start");
-            screen_info.forEach   (selector => selector.style = "text-align: left; padding-right: 65px;");  
+            screen_info.forEach   (selector => selector.style = "text-align: left; padding-right: 65px;");
+            
+            translate_selector.forEach(element => {
+                element.textContent = arrLang['en'][element.getAttribute('key')];
+            });
         }
     }
 
