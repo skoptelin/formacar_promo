@@ -5,19 +5,19 @@
 			<div class="form__body">
 				<label class="form__field"><input name="name" type="text" placeholder="Name" autocomplete="off"></label>
 				<select name="topic" class="form__field form__field_select">
-					<option value="" selected>Purpose of Inquiry</option>
-					<option value="Business/Partnership">Business/Partnership</option>
-					<option value="Investments">Investments</option>
+					<option class="lang" key="formacar_purpose_inquiry" selected>Purpose of Inquiry</option>
+					<option class="lang" key="business_partnership" value="Business/Partnership">Business/Partnership</option>
+					<option class="lang" key="formacar_investments" value="Investments">Investments</option>
 				</select>
 				<label class="form__field"><input name="phone" type="text" placeholder="Phone" autocomplete="off" maxlength="20"></label>
 				<label class="form__field"><input name="email" type="email" placeholder="E-mail" autocomplete="off"></label>
 				<label class="form__field"><textarea name="message" placeholder="Message" rows="1"></textarea></label>
 			</div>
 			<div class="form__buttons">
-				<button class="form__button button button_fade" data-badge="inline" type="submit">Send</button>
+				<button class="form__button button button_fade lang" key="formacar_send" data-badge="inline" type="submit">Send</button>
 			</div>
-			<div class="form__captcha_policy">
-				This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
+			<div class="form__captcha_policy lang" key="site_captcha">
+				This site is protected by reCAPTCHA and the Google <a class="lang" key="privacy_policy" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> <span class="lang" key="and">and</span> <a class="lang" key="terms_service" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> <span class="lang" key="button_apply"> apply.</span>
 			</div>
 		</form>
 	</div>
