@@ -42,8 +42,8 @@
             'application_sent': 'Your application has been sent. We will contact you shortly.'
         },
         'ar': {
-            'formacar_design': 'هو استوديو متميز لتصميم  السيارات الفاخرة Formacar Design',
-            'formacar_description': 'تسمح المعايير العالية والنهج المميز للعلامة التجارية Formacar  بالنظر إلى المألوف بشكل مختلف وفتح جوانب جديدة للتميز في تصميم السيارات.',
+            'formacar_design': 'Formacar Design  هو استوديو متميز لتصميم  السيارات الفاخرة.',
+            'formacar_description': 'تسمح المعايير العالية والنهج المميز للعلامة التجارية Formacar  بالنظر إلى المألوف بشكل مختلف وفتح جوانب جديدة للتميز في تصميم السيارات',
             'our_works': 'أعمالنا',
             'for_business_partners': 'لشركاء الأعمال',
             'description_virus2': 'يمثل VIRUS 2، الأنيق والمُقوَّى في الوقت نفسه، اتجاهًا جديدًا في تصميم Porsche 911. فالحياة الخالية من العاطفة والتنوع تفقد الصدق. لو كان الجميع متشابهين، لكان العالم أقل إثارة للاهتمام. الفردية مهمة في كل التفاصيل، وسوف يسلط VIRUS 2 الضوء على أسلوبكم الفريد.',
@@ -62,7 +62,7 @@
             'join_our_team': "إذا كنتم تحلمون بفتح مشروع أعمال ناجح وتطويره في مجال صناعة السيارات، انضم إلى فريقنا!",
             'formacar_changes': 'Formacar – يغير كل شيء!',
             'formacar_catalog': 'فهرس',
-            'formacar_invest_desk': '(إتفيست – ديك): عرض تقديمي مفصل مصمم للتحليل المتعمق للأعمال.',
+            'formacar_invest_desk': 'إتفيست – ديك',
             'formacar_get_details': 'لمزيد من المعلومات',
             'formacar_name': 'الاسم',
             'formacar_purpose_inquiry': 'الغرض من الطلب',
@@ -147,10 +147,7 @@
             screen_info.forEach   (selector => selector.style = "text-align: right; padding-right: 0;");
 
             translate_selector.forEach(element => {
-                /* console.log(element);
-                let tag_bdo   = document.createElement('bdo'); */
-                /* let translate = tag_bdo.textContent = arrLang['ar'][element.getAttribute('key')];
-                element.appendChild(translate); */
+                element.setAttribute('dir', 'rtl');
                 element.textContent = arr_lang['ar'][element.getAttribute('key')];
             });
             
@@ -174,6 +171,7 @@
             screen_info.forEach   (selector => selector.style = "text-align: left; padding-right: 65px;");
             
             translate_selector.forEach(element => {
+                element.setAttribute('dir', 'ltr');
                 element.textContent = arr_lang['en'][element.getAttribute('key')];
             });
         }
