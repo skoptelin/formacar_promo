@@ -118,8 +118,6 @@ import { selectTweaker } from "../../js/libs/selectTweaker";
 						}
 
 						if (isOk) {
-							let selected_language_switch_box     = document.querySelector('.language_switch__box.selected');
-							let selected_language                = selected_language_switch_box.querySelector('.text').id;
 							fetch('https://api.formacar.com/api/v1/user/webfeedback', {
 								method: 'POST',
 								headers: {
@@ -135,21 +133,11 @@ import { selectTweaker } from "../../js/libs/selectTweaker";
 								}),
 							}).then((response) => {
 								if (response.status !== 200) {
-									if(selected_language == 'arabic'){
-										form.querySelector('.form__message').textContent = 'Error sending message';
-										form.querySelector('.form__message').setAttribute("dir", "rtl");
-									} else {
-										form.querySelector('.form__message').textContent = 'Error sending message';
-									}
+									form.querySelector('.form__message').textContent = 'Error sending message';
 									form.querySelector('.form__message').className = 'form__message form__message_error';
 									return;
 								} else {
-									if(selected_language == 'arabic'){
-										form.querySelector('.form__message').textContent = 'لقد تم إرسال طلبكم. سنتواصل معكم قريبا.';
-										form.querySelector('.form__message').setAttribute("dir", "rtl");
-									} else {
-										form.querySelector('.form__message').textContent = 'The message was sent successfully';
-									}
+									form.querySelector('.form__message').textContent = 'The message was sent successfully';
 									form.querySelector('.form__message').className = 'form__message form__message_success';
 									return;
 								}
