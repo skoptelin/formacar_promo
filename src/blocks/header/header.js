@@ -12,7 +12,7 @@
 		header_logo.classList[(box.bottom < 0) ? 'add': 'remove']('showed');
 		header_inner.classList[(box.bottom < 0) ? 'add': 'remove']('showed');
 		language_switch.classList[(box.bottom < 0) ? 'add': 'remove']('mobile');
-		if(selected_language == 'arab'){
+		if(selected_language == 'arabic'){
 			if(!header_inner.classList.contains('showed')){
 				header_inner.style = "flex-direction: row; justify-content: flex-start;"
 			} else {
