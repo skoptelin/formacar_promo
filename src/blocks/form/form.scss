@@ -39,9 +39,11 @@
 	}
 
 	&__field {
-		display: block;
+		display: flex;
 		width: 100%;
 		margin-bottom: 24px;
+		background-color: #151515;
+		color: white;
 		
 		&_error {
 			
@@ -73,7 +75,7 @@
 					display: block;
 					background-color: #151515;
 				}
-				
+
 				.select__head {
 					border-color: #fff;
 
@@ -108,7 +110,33 @@
 					top: calc(50% - 5px);
 				}
 			}
-			
+
+			.select__head_arabic {
+				display: flex;
+				justify-content: space-between;
+				box-sizing: border-box;
+				padding: 10px 0;
+				height: 100%;
+				color: #fff;
+				transition: border-color 0.3s;
+				border-bottom: 1px solid #5a5a5a;
+
+				@include media('<=xs') {
+
+				}
+					
+				&::before {
+					display: block;
+					content: '';
+					width: 16px;
+					height: 9px;
+					transition: transform 0.2s;
+					background: url('#{$images-path}icons-sprite.svg#icon-arr-down-view-dark') center / contain no-repeat transparent;
+					right: 0px;
+					top: calc(50% - 5px);
+				}
+			}
+	
 			.select__list {
 				box-sizing: border-box;
 				display: none;

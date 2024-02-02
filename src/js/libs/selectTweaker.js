@@ -34,7 +34,6 @@ selectTweaker(document.querySelectorAll('.someblock__select'));
 */
 
 export const selectTweaker = (items, name = 'select') => {
-
 	[...items].forEach((select, i) => {
 		const wrapper = select.closest(`.${name}`);
 		const previous = select.previousElementSibling;
@@ -80,4 +79,18 @@ export const selectTweaker = (items, name = 'select') => {
 				_wrapper.classList.remove(`${name}_opened`);
 		});
 	});
+
+	let selected_language_switch_box     = document.querySelector('.language_switch__box.selected');
+	let selected_language                = selected_language_switch_box.querySelector('.text').id;
+	let modal_select_head                = document.querySelector(".select__head");
+
+	if(selected_language == 'arabic') {
+		modal_select_head.classList.remove("select__head");
+		modal_select_head.classList.add("select__head_arabic");
+
+	} else {
+		modal_select_head.classList.remove("select__head_arabic");
+		modal_select_head.classList.add("select__head");
+	}
+	
 }

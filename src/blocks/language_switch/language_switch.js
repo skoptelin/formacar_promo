@@ -84,9 +84,12 @@
 
     let not_selected_language_switch_box = document.querySelector('.language_switch__box.not_selected');
     let selected_language_switch_box     = document.querySelector('.language_switch__box.selected');
+    let language_switch                  = selected_language_switch_box.parentNode;
+    let parent_selector                  = language_switch.parentNode;
 
     selected_language_switch_box.addEventListener('click', show_language_list);
     not_selected_language_switch_box.addEventListener('click', change_language);
+    document.addEventListener('DOMContentLoaded', set_content_language(selected_language_switch_box, parent_selector));
 
     function show_language_list() {
         let language_switch                      = selected_language_switch_box.parentNode;
@@ -115,19 +118,19 @@
         language_switch.classList.toggle("language_switch__active");
 
         selected_language_switch_box = document.querySelector('.language_switch__box.selected');
-        change_language_switch_location(selected_language_switch_box, parent_selector);
+        set_content_language(selected_language_switch_box, parent_selector);
     }
 
-    function change_language_switch_location(selected_language_switch_box, parent_selector) {
+    function set_content_language(selected_language_switch_box, parent_selector) {
         let selected_language    = selected_language_switch_box.querySelector('.text').id;
         let logo_selector        = document.querySelectorAll(".screen__head");
         let hero_buttons         = document.querySelector(".hero__buttons");
         let screen_content       = document.querySelectorAll(".screen__content");
         let screen_info          = document.querySelectorAll(".screen__info");
         let final_screen_content = document.querySelector("#final_screen_content");
-        let translate_selector = document.querySelectorAll(".lang");
+        let translate_selector   = document.querySelectorAll(".lang");
         const window_width       = window.innerWidth;
-        if(selected_language == 'arab'){
+        if(selected_language == 'arabic'){
             if(parent_selector.classList.contains('showed')){
                 parent_selector.style = "flex-direction: row-reverse; justify-content: space-between"
             } else {
@@ -143,6 +146,7 @@
                 hero_buttons.style         = "flex-direction: row-reverse";
                 final_screen_content.style = "flex-direction: row";
             }
+
             logo_selector.forEach (selector => selector.style = "justify-content: flex-end");
             screen_info.forEach   (selector => selector.style = "text-align: right; padding-right: 0;");
 
@@ -150,7 +154,9 @@
                 element.setAttribute('dir', 'rtl');
                 element.textContent = arr_lang['ar'][element.getAttribute('key')];
             });
-            
+
+            modal_change_location(selected_language);
+
         } else {
             if(parent_selector.classList.contains('showed')){
                 parent_selector.style = "flex-direction: row; justify-content: space-between"
@@ -174,6 +180,56 @@
                 element.setAttribute('dir', 'ltr');
                 element.textContent = arr_lang['en'][element.getAttribute('key')];
             });
+
+            modal_change_location(selected_language);
+        }
+    }
+
+    function modal_change_location(selected_language){
+        let language_ar          = 'ar';
+        let language_en          = 'en';
+        let modal_input_name     = document.querySelector("#name");
+        let modal_input_phone    = document.querySelector("#phone");
+        let modal_input_email    = document.querySelector("#email");
+        let modal_input_message  = document.querySelector("#message");
+        let site_captcha         = document.querySelector('[key="site_captcha"]');
+
+        if(selected_language == 'arabic') {
+            let site_captcha_text    = arr_lang[language_ar]['site_captcha'];
+            let privacy_policy_text  = arr_lang[language_ar]['privacy_policy'];
+            let and_text             = arr_lang[language_ar]['and'];
+            let terms_service_text   = arr_lang[language_ar]['terms_service'];
+            let apply_text           = arr_lang[language_ar]['button_apply'];
+
+            modal_input_name.setAttribute('placeholder', arr_lang[language_ar]['formacar_name']);
+            modal_input_phone.setAttribute('placeholder', arr_lang[language_ar]['formacar_phone']);
+            modal_input_email.setAttribute('placeholder', arr_lang[language_ar]['formacar_email']);
+            modal_input_message.setAttribute('placeholder', arr_lang[language_ar]['formacar_message']);
+
+            modal_input_name.style    = "text-align: end";
+            modal_input_phone.style   = "text-align: end";
+            modal_input_email.style   = "text-align: end";
+            modal_input_message.style = "text-align: right";
+
+            site_captcha.innerHTML = site_captcha_text + '<a href="https://policies.google.com/privacy" target="_blank">' + privacy_policy_text + '</a>' + and_text + '<a href="https://policies.google.com/terms" target="_blank">' + terms_service_text + '</a>' + apply_text;
+        } else {
+            let site_captcha_text    = arr_lang[language_en]['site_captcha'];
+            let privacy_policy_text  = arr_lang[language_en]['privacy_policy'];
+            let and_text             = arr_lang[language_en]['and'];
+            let terms_service_text   = arr_lang[language_en]['terms_service'];
+            let apply_text           = arr_lang[language_en]['button_apply'];
+
+            modal_input_name.setAttribute('placeholder', arr_lang[language_en]['formacar_name']);
+            modal_input_phone.setAttribute('placeholder', arr_lang[language_en]['formacar_phone']);
+            modal_input_email.setAttribute('placeholder', arr_lang[language_en]['formacar_email']);
+            modal_input_message.setAttribute('placeholder', arr_lang[language_en]['formacar_message']);
+
+            modal_input_name.style    = "text-align: start";
+            modal_input_phone.style   = "text-align: start";
+            modal_input_email.style   = "text-align: start";
+            modal_input_message.style = "text-align: left";
+
+            site_captcha.innerHTML = site_captcha_text + '<a href="https://policies.google.com/privacy" target="_blank">' + privacy_policy_text + '</a>' + and_text + '<a href="https://policies.google.com/terms" target="_blank">' + terms_service_text + '</a>' + apply_text;
         }
     }
 

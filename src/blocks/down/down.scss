@@ -26,6 +26,7 @@
 		height: 52px;
 		background: url('#{$images-path}scroll-down.svg') center / contain no-repeat transparent;
 		margin-right: 20px;
+		margin-left: 20px;
 		animation: moveDown 2s infinite;
 	}
 }

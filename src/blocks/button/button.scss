@@ -46,6 +46,7 @@
 			height: 24px;
 			flex-shrink: 0;
 			margin-right: 16px;
+			margin-left: 16px;
 			background: url('#{$images-path}icons-sprite.svg#icon-download-view-white') center / contain no-repeat transparent;
 			
 			@include media('<=xxs') {
