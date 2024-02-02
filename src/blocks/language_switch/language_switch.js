@@ -166,15 +166,16 @@
 
             if(window_width <= 960) {
                 screen_content.forEach(selector => selector.style = "flex-direction: column");
+                screen_info.forEach   (selector => selector.style = "text-align: left; padding-right: 5px;");
                 hero_buttons.style         = "flex-direction: column";
                 final_screen_content.style = "flex-direction: column; padding-right: 0;";
             } else {
                 screen_content.forEach(selector => selector.style = "flex-direction: row");
+                screen_info.forEach   (selector => selector.style = "text-align: left; padding-right: 65px;");
                 hero_buttons.style         = "flex-direction: row";
                 final_screen_content.style = "flex-direction: row";
             }
             logo_selector.forEach (selector => selector.style = "justify-content: flex-start");
-            screen_info.forEach   (selector => selector.style = "text-align: left; padding-right: 65px;");
             
             translate_selector.forEach(element => {
                 element.setAttribute('dir', 'ltr');
