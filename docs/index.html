@@ -5,10 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
 	<link rel="shortcut icon" href="images/favicon.ico"> 
 	<link rel="stylesheet" href="style.css">
-	<script src="https://www.google.com/recaptcha/api.js?render=6Lev38wZAAAAAHKnX3dtsNNjBTmmC37VmQg9SQHv" async defer></script>
+	<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+	<!-- <script src="https://www.google.com/recaptcha/api.js?render=6Lev38wZAAAAAHKnX3dtsNNjBTmmC37VmQg9SQHv"></script> -->
 	<title></title>
 </head>
-<body class=""> 
+<body class="">
 
 <header class="header"> 
 	<div class="header__inner container">
@@ -231,7 +232,8 @@
 						</div>
 						<div class="screen__buttons">
 							<button class="screen__button screen__button_load button button_load lang" key="formacar_catalog">Catalog</button>
-							<button class="screen__button screen__button_get button lang" data-modal="#feedback" key="formacar_get_details">Get Details</button>
+							<button class="screen__button screen__button_get button lang" id="get_details" key="formacar_get_details">Get Details</button>
+							<!-- <button class="screen__button screen__button_get button lang" data-modal="#feedback" key="formacar_get_details">Get Details</button> -->
 						</div>
 					</div>
 					<div class="screen__side screen__side_right-fit" data-animation="0.5" data-repeat>
@@ -244,7 +246,8 @@
 <div class="slider__dots"></div>
 </div>
 
-<div class="modal__hidden">
+<!--Modal feedback without recaptcha  -->
+	<!-- <div class="modal__hidden">
 	<div id="feedback">
 		<form class="form">
 			<div class="form__message"></div>
@@ -268,8 +271,48 @@
 			</div>
 		</form>
 	</div>
-</div> 
+</div> -->
 
+<!-- Modal feedback with recaptcha -->
+<div class="modal modal_feedback" id="feedback_recaptcha">
+	<div class="modal__body">
+		<span class="modal__close" id="feedback_recaptcha_close"></span>
+		<div class="modal__content">
+			<form class="form">
+				<div class="form__message"></div>
+				<div class="form__body">
+					<label class="form__field"><input dir="auto" id="name" name="name" type="text" placeholder="Name" autocomplete="off"></label>
+					<select name="topic" class="form__field form__field_select">
+						<option class="lang" key="formacar_purpose_inquiry" selected>Purpose of Inquiry</option>
+						<option class="lang" key="business_partnership" value="Business/Partnership">Business/Partnership</option>
+						<option class="lang" key="formacar_investments" value="Investments">Investments</option>
+						<option class="lang" key="formacar_order" value="Order">Order</option>
+					</select>
+					<label class="form__field"><input dir="auto" id="phone" name="phone" type="text" placeholder="Phone" autocomplete="off" maxlength="20"></label>
+					<label class="form__field"><input dir="auto" id="email" name="email" type="email" placeholder="E-mail" autocomplete="off"></label>
+					<label class="form__field"><textarea dir="auto" id="message" name="message" placeholder="Message" rows="1"></textarea></label>
+				</div>
+				<div class="form__buttons">
+					<div class="g-recaptcha form__recaptcha" id="recaptcha" is-ok="false" data-sitekey="6LdyYLQpAAAAAH1xcaEtGXpQ_UwjNDvZFd6wweWX" language="en" data-theme="dark" data-callback="onSuccess"></div>
+					<button class="form__button button button_fade lang" id="submit_feedback" key="formacar_send" type="submit">Send</button>
+				</div>
+				<div class="form__captcha_policy lang" key="site_captcha">
+					This site is protected by reCAPTCHA and the Google <a class="lang" key="privacy_policy" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> <span class="lang" key="and">and</span> <a class="lang" key="terms_service" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> <span class="lang" key="button_apply"> apply.</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	function onSuccess(response) {
+		if (response) {
+			let formRecaptchaError = document.querySelector(".form__recaptcha_error");
+			if (formRecaptchaError) {
+				formRecaptchaError.classList.remove('form__recaptcha_error');
+			}
+		}
+	}
+</script>
 <script src="common.js"></script>
 </body> 
 </html>

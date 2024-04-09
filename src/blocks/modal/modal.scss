@@ -121,6 +121,10 @@
 		display: none;
 	}
 
+	&__show {
+		display: flex;
+	}
+
 	&__body {
 		animation: slideInDown 0.7s ease both;
 		box-sizing: border-box;

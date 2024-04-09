@@ -68,9 +68,9 @@ import { selectTweaker } from "../../js/libs/selectTweaker";
 			});
 
 			form.addEventListener('submit', (e) => {
-				e.preventDefault();
 				grecaptcha.ready(function() {
 					grecaptcha.execute('6Lev38wZAAAAAHKnX3dtsNNjBTmmC37VmQg9SQHv', {action: 'submit'}).then(function (token) {
+						e.preventDefault();
 						let formData = new FormData(form);
 						let isOk = true;
 						let sData = [];
@@ -139,6 +139,9 @@ import { selectTweaker } from "../../js/libs/selectTweaker";
 								} else {
 									form.querySelector('.form__message').textContent = 'The message was sent successfully';
 									form.querySelector('.form__message').className = 'form__message form__message_success';
+									setTimeout(() => {
+										document.querySelector('.modal__close').click();
+									}, 1000);
 									return;
 								}
 							});

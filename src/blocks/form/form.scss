@@ -189,8 +189,18 @@
 		}
 	}
 
-	&__buttons {
+	&__recaptcha {
+		margin-bottom: 40px;
 
+		&_error {
+			border: 1px solid #eb5757;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	&__button {

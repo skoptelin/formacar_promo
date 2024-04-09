@@ -214,7 +214,7 @@
             modal_input_email.style   = "text-align: end";
             modal_input_message.style = "text-align: right";
 
-            site_captcha.innerHTML = site_captcha_text + '<a href="https://policies.google.com/privacy" target="_blank">' + privacy_policy_text + '</a>' + and_text + '<a href="https://policies.google.com/terms" target="_blank">' + terms_service_text + '</a>' + apply_text;
+            site_captcha.innerHTML = site_captcha_text + " " + '<a href="https://policies.google.com/privacy" target="_blank">' + privacy_policy_text + '</a>' + " " + and_text + " " + '<a href="https://policies.google.com/terms" target="_blank">' + terms_service_text + '</a>' + " " + apply_text;
         } else {
             let site_captcha_text    = arr_lang[language_en]['site_captcha'];
             let privacy_policy_text  = arr_lang[language_en]['privacy_policy'];
@@ -232,7 +232,7 @@
             modal_input_email.style   = "text-align: start";
             modal_input_message.style = "text-align: left";
 
-            site_captcha.innerHTML = site_captcha_text + '<a href="https://policies.google.com/privacy" target="_blank">' + privacy_policy_text + '</a>' + and_text + '<a href="https://policies.google.com/terms" target="_blank">' + terms_service_text + '</a>' + apply_text;
+            site_captcha.innerHTML = site_captcha_text + " " + '<a href="https://policies.google.com/privacy" target="_blank">' + privacy_policy_text + '</a>' + " " + and_text + " " + '<a href="https://policies.google.com/terms" target="_blank">' + terms_service_text + '</a>' + " " + apply_text;
         }
     }
 
